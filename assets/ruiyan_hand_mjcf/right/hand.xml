@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="RuiYan_Hand_Right_Mimic">
+  <compiler angle="radian" />
+  <option gravity="0 0 0">
+    <flag contact="disable" />
+  </option>
+  <asset>
+    <mesh name="hand2_link_1_1_visuals" content_type="model/obj" file="hand2_link_1_1_visuals.obj" />
+    <mesh name="hand2_link_1_2_visuals" content_type="model/obj" file="hand2_link_1_2_visuals.obj" />
+    <mesh name="hand2_link_1_3_visuals" content_type="model/obj" file="hand2_link_1_3_visuals.obj" />
+    <mesh name="hand2_link_1_4_visuals" content_type="model/obj" file="hand2_link_1_4_visuals.obj" />
+    <mesh name="hand2_link_2_1_visuals" content_type="model/obj" file="hand2_link_2_1_visuals.obj" />
+    <mesh name="hand2_link_2_2_visuals" content_type="model/obj" file="hand2_link_2_2_visuals.obj" />
+    <mesh name="hand2_link_2_3_visuals" content_type="model/obj" file="hand2_link_2_3_visuals.obj" />
+    <mesh name="hand2_link_3_1_visuals" content_type="model/obj" file="hand2_link_3_1_visuals.obj" />
+    <mesh name="hand2_link_3_2_visuals" content_type="model/obj" file="hand2_link_3_2_visuals.obj" />
+    <mesh name="hand2_link_3_3_visuals" content_type="model/obj" file="hand2_link_3_3_visuals.obj" />
+    <mesh name="hand2_link_4_1_visuals" content_type="model/obj" file="hand2_link_4_1_visuals.obj" />
+    <mesh name="hand2_link_4_2_visuals" content_type="model/obj" file="hand2_link_4_2_visuals.obj" />
+    <mesh name="hand2_link_4_3_visuals" content_type="model/obj" file="hand2_link_4_3_visuals.obj" />
+    <mesh name="hand2_link_5_1_visuals" content_type="model/obj" file="hand2_link_5_1_visuals.obj" />
+    <mesh name="hand2_link_5_2_visuals" content_type="model/obj" file="hand2_link_5_2_visuals.obj" />
+    <mesh name="hand2_link_5_3_visuals" content_type="model/obj" file="hand2_link_5_3_visuals.obj" />
+    <mesh name="hand2_link_base_visuals" content_type="model/obj" file="hand2_link_base_visuals.obj" />
+  </asset>
+  <worldbody>
+    <geom type="mesh" mesh="hand2_link_3_3_visuals" pos="0. 0. 0." quat="1.0 0.0 0.0 0.0" />
+    <geom type="mesh" mesh="hand2_link_4_3_visuals" pos="0. 0. 0." quat="1.0 0.0 0.0 0.0" />
+    <geom type="mesh" mesh="hand2_link_base_visuals" pos="0. 0. 0." quat="1.0 0.0 0.0 0.0" />
+    <body name="hand2_link_1_1" pos="0.0135 0.022 0.0398" quat="-1.640851568007909e-08 0.7071080634510175 -0.707105498919752 1.6408456169866072e-08">
+      <inertial pos="0 0 0" mass="0.0122865" diaginertia="0.001 0.001 0.001" />
+      <!-- thumb rotation: upper limit intentionally reduced from the model's original 2.356 to 1.4136 rad -->
+      <joint name="hand2_joint_link_1_1" pos="0 0 0" axis="0. 0. 1." range="0.0 1.4136" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+      <geom type="mesh" mesh="hand2_link_1_1_visuals" pos="0. 0. 0." quat="-1.7820335139672924e-15 7.679489672524421e-08 -0.9999999999999968 2.3205103333142348e-08" />
+      <body name="hand2_link_1_2" pos="-0.0105 -0. -0.0107" quat="5.4302290706308335e-08 -5.4302093763394656e-08 0.70710549891975 -0.7071080634510155">
+        <inertial pos="0 0 0" mass="0.0125498" diaginertia="0.001 0.001 0.001" />
+        <joint name="hand2_joint_link_1_2" pos="0 0 0" axis="0. 0. 1." range="0.0 0.698" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+        <geom type="mesh" mesh="hand2_link_1_2_visuals" pos="-0. 0. 0." quat="0.9999999999999988 0.0 0.0 -4.999999999999998e-08" />
+        <body name="hand2_link_1_3" pos="0.040457 0.011223 -0. " quat="0.9999999999999988 0.0 0.0 -4.999999999999998e-08">
+          <inertial pos="0 0 0" mass="0.0076685" diaginertia="0.001 0.001 0.001" />
+          <joint name="hand2_joint_link_1_3" pos="0 0 0" axis="0. 0. 1." range="0.0 1.169" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+          <geom type="mesh" mesh="hand2_link_1_3_visuals" pos="0.036284 0.0268 0. " quat="0.6951473637827968 -0.1294925848851913 0.6951498758009419 0.12949310120432755" />
+          <site name="right_thumb_tip" pos="0.0289525 0.028477 0." size="0.0015" rgba="1 0 0 1" type="sphere" />
+        </body>
+      </body>
+    </body>
+    <body name="hand2_link_2_1" pos="-0.0035 0.029833 0.11095 " quat="0.4799950023539874 -0.5192349752453447 0.5192330021948212 0.4799967996027833">
+      <inertial pos="0 0 0" mass="0.0100639" diaginertia="0.001 0.001 0.001" />
+      <joint name="hand2_joint_link_2_1" pos="0 0 0" axis="0. 0. 1." range="0.0 1.518" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+      <geom type="mesh" mesh="hand2_link_2_1_visuals" pos="0. 0. 0." quat="5.8974561630409256e-15 7.6794896725244e-08 -0.999999999999994 -7.6794896725244e-08" />
+      <body name="hand2_link_2_2" pos="-0.0419 0.001 0. " quat="1.0 0.0 0.0 0.0">
+        <inertial pos="0 0 0" mass="0.0035861" diaginertia="0.001 0.001 0.001" />
+        <joint name="hand2_joint_link_2_2" pos="0 0 0" axis="0. 0. 1." range="0.0 1.6229999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+        <geom type="mesh" mesh="hand2_link_2_2_visuals" pos="-0.043692 -0.011217 -0. " quat="0.7070788014267961 -0.005375152258371874 -0.7070863365698653 -0.0062919748292476485" />
+        <site name="right_index_tip" pos="-0.0416063 -0.0157651 0.0000874" size="0.0015" rgba="0 1 0 1" type="sphere" />
+      </body>
+    </body>
+    <body name="hand2_link_3_1" pos="-0.0035 0.009945 0.112 " quat="0.49340728715344995 -0.5065069624705317 0.5065050466882459 0.493409144252603">
+      <inertial pos="0 0 0" mass="0.0082987" diaginertia="0.001 0.001 0.001" />
+      <joint name="hand2_joint_link_3_1" pos="0 0 0" axis="0. 0. 1." range="0.0 1.5709999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+      <geom type="mesh" mesh="hand2_link_3_1_visuals" pos="0. 0. 0." quat="5.384768207018173e-16 -2.320510333314241e-08 -0.9999999999999996 2.320510333314241e-08" />
+      <body name="hand2_link_3_2" pos="-0.0519 0.001 0. " quat="1.0 0.0 0.0 0.0">
+        <inertial pos="0 0 0" mass="0.003586" diaginertia="0.001 0.001 0.001" />
+        <joint name="hand2_joint_link_3_2" pos="0 0 0" axis="0. 0. 1." range="0.0 1.6409999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+        <geom type="mesh" mesh="hand2_link_3_2_visuals" pos="-0.043641 -0.01141 -0. " quat="0.7070932266948269 -0.004173168934714089 -0.7070944383483752 -0.004382770828647131" />
+        <site name="right_middle_tip" pos="-0.0426192 -0.015904 0.0000652" size="0.0015" rgba="0 0 1 1" type="sphere" />
+      </body>
+    </body>
+    <body name="hand2_link_4_1" pos="-0.0035 -0.009945 0.11099 " quat="0.5065051306495738 -0.4934091782184865 0.49340725318792616 0.5065068785090304">
+      <inertial pos="0 0 0" mass="0.0100639" diaginertia="0.001 0.001 0.001" />
+      <joint name="hand2_joint_link_4_1" pos="0 0 0" axis="0. 0. 1." range="0.0 1.5709999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+      <geom type="mesh" mesh="hand2_link_4_1_visuals" pos="0. 0. 0." quat="5.384768207018173e-16 -2.320510333314241e-08 -0.9999999999999996 2.320510333314241e-08" />
+      <body name="hand2_link_4_2" pos="-0.0419 0.001 0. " quat="1.0 0.0 0.0 0.0">
+        <inertial pos="0 0 0" mass="0.0035859" diaginertia="0.001 0.001 0.001" />
+        <joint name="hand2_joint_link_4_2" pos="0 0 0" axis="0. 0. 1." range="0.0 1.6579999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+        <geom type="mesh" mesh="hand2_link_4_2_visuals" pos="-0. -0. -0." quat="5.384768207018173e-16 2.320510333314241e-08 -0.9999999999999996 -2.320510333314241e-08" />
+        <site name="right_ring_tip" pos="-0.0437206 -0.0156348 0.0001176" size="0.0015" rgba="1 1 0 1" type="sphere" />
+      </body>
+    </body>
+    <body name="hand2_link_5_1" pos="-0.0035 -0.029624 0.10795 " quat="0.519233190083796 -0.47999693753088646 0.4799948644266003 0.51923478735584">
+      <inertial pos="0 0 0" mass="0.0087057" diaginertia="0.001 0.001 0.001" />
+      <joint name="hand2_joint_link_5_1" pos="0 0 0" axis="0. 0. 1." range="0.0 1.5449999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+      <geom type="mesh" mesh="hand2_link_5_1_visuals" pos="0. 0. 0." quat="5.384768207018173e-16 -2.320510333314241e-08 -0.9999999999999996 2.320510333314241e-08" />
+      <body name="hand2_link_5_2" pos="-0.0369 0.001 0. " quat="1.0 0.0 0.0 0.0">
+        <inertial pos="0 0 0" mass="0.0035859" diaginertia="0.001 0.001 0.001" />
+        <joint name="hand2_joint_link_5_2" pos="0 0 0" axis="0. 0. 1." range="0.0 1.6579999" actuatorfrcrange="-3.40282e+38 3.40282e+38" />
+        <geom type="mesh" mesh="hand2_link_5_2_visuals" pos="-0.043691 -0.011217 0. " quat="0.707086349134437 -0.006291833301186378 -0.7070787890455608 -0.005375293787945545" />
+        <site name="right_pinky_tip" pos="-0.0404732 -0.0155 0.0003224" size="0.0015" rgba="1 0 1 1" type="sphere" />
+      </body>
+    </body>
+    <geom type="mesh" mesh="hand2_link_5_3_visuals" pos="0. -0. -0." quat="0.9999999999999988 -4.999999999999998e-08 0.0 0.0" />
+    <geom type="mesh" mesh="hand2_link_1_4_visuals" pos="0. 0. 0." quat="1.0 0.0 0.0 0.0" />
+    <geom type="mesh" mesh="hand2_link_2_3_visuals" pos="-0. 0. -0." quat="1.0 0.0 0.0 0.0" />
+    <!-- Mocap targets for interactive IK -->
+    <body name="thumb_target" mocap="true" pos="0.013 0.108 0.093">
+      <geom type="sphere" size="0.005" rgba="1 0 0 0.5" contype="0" conaffinity="0"/>
+    </body>
+    <body name="index_target" mocap="true" pos="0.011 0.037 0.195">
+      <geom type="sphere" size="0.005" rgba="0 1 0 0.5" contype="0" conaffinity="0"/>
+    </body>
+    <body name="middle_target" mocap="true" pos="0.012 0.012 0.205">
+      <geom type="sphere" size="0.005" rgba="0 0 1 0.5" contype="0" conaffinity="0"/>
+    </body>
+    <body name="ring_target" mocap="true" pos="0.011 -0.012 0.194">
+      <geom type="sphere" size="0.005" rgba="1 1 0 0.5" contype="0" conaffinity="0"/>
+    </body>
+    <body name="pinky_target" mocap="true" pos="0.011 -0.036 0.186">
+      <geom type="sphere" size="0.005" rgba="1 0 1 0.5" contype="0" conaffinity="0"/>
+    </body>
+  </worldbody>
+  <equality>
+    <joint joint1="hand2_joint_link_1_2" joint2="hand2_joint_link_1_3" polycoef="0.0 1.675 0 0 0" />
+    <joint joint1="hand2_joint_link_2_1" joint2="hand2_joint_link_2_2" polycoef="0.0 1.0 0 0 0" />
+    <joint joint1="hand2_joint_link_3_1" joint2="hand2_joint_link_3_2" polycoef="0.0 1.0 0 0 0" />
+    <joint joint1="hand2_joint_link_4_1" joint2="hand2_joint_link_4_2" polycoef="0.0 1.0 0 0 0" />
+    <joint joint1="hand2_joint_link_5_1" joint2="hand2_joint_link_5_2" polycoef="0.0 1.0 0 0 0" />
+  </equality>
+  <keyframe>
+    <key name="home" qpos="1.4136 0 0 0 0 0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>

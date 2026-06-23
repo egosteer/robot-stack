@@ -1,0 +1,33 @@
+model_interface_node:
+  ros__parameters:
+    control_frequency: 30.0
+    model_server_host: "127.0.0.1"
+    model_server_port: 8765
+    calibration_path: "/root/workspace/robot-stack/assets/calibration"
+    camera_setup: "both"   # head, chest, both
+    image_mode: "rgb"     # rgb, rgbd
+    ui_service_host: "localhost"
+    ui_service_port: 8081
+    # Voice prompt language: Chinese / English (audio played on the host by host_interaction/server.py)
+    audio_language: "English"
+    state_frequency: 1.0
+    state_horizon: 6
+    image_frequency: 1.0
+    image_horizon: 6
+    action_execution_len: 8
+    action_rtc_len: 4
+    action_mode: "relative"
+    buffer_size: 1000
+    debug_code: false
+    do_resize: true
+    original_wh: [640, 480]
+    target_wh: [640, 480]
+    image_compression: "jpeg"  # none, jpeg
+    jpeg_quality: 80
+    human_in_the_loop: false
+    # Recording output dir. Empty string -> recordings/; otherwise -> recordings/<task_name>/.
+    # Only takes effect when human_in_the_loop=true and recording actually happens.
+    task_name: ""
+    tracker_launch_command: ["ros2", "launch", "tracker", "dual_tracker.launch.py"]
+    glove_launch_command: ["ros2", "launch", "glove", "dual_glove.launch.py"]
+    human_input_shutdown_timeout: 5.0

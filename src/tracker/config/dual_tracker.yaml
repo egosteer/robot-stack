@@ -1,0 +1,5 @@
+# Vive tracker settings. Find serials with `python assets/SteamVR/detect_trackers.py`.
+left_serial_number: ""
+right_serial_number: ""
+publish_rate: 100.0
+base_frame: map

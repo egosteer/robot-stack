@@ -1,0 +1,3 @@
+# Teleop data-collection settings.
+task_name: ""            # episodes -> recordings/<task_name>/ ; empty -> recordings/
+audio_language: English  # voice prompts: Chinese / English

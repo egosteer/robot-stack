@@ -1,0 +1,6 @@
+# Configuration for assets/host_interaction/server.py
+#
+# Youdao translation API credentials, required only for the --cn and --dev input modes.
+# Get them at https://ai.youdao.com/ . Leave empty if you only use the default (English) mode.
+youdao_app_key: ""
+youdao_app_secret: ""

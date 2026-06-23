@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco model="Robot_IK_Scene_Transformed">
+  
+  <!-- Use the baked robot model -->
+  <include file="robot.xml"/>
+  
+  <statistic center="0.3 0 1.2" extent="2" meansize="0.08"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0 0 0"/>
+    <global azimuth="180" elevation="-20"/>
+  </visual>
+
+  <asset>
+    <texture name="wood" type="2d" builtin="gradient" rgb1="0.8 0.6 0.4" rgb2="0.6 0.4 0.2" 
+             width="128" height="128"/>
+    <material name="wood" texture="wood"/>
+  </asset>
+
+  <worldbody>
+    <!-- Work table -->
+    <geom name="table" type="box" size="0.4 0.4 0.05" mass="10" material="wood" 
+          pos="0.8 0 1.0"/>
+
+    <!-- Additional target sites for IK control (similar to original scene.xml) -->
+    <body name="left_wrist_target" pos="0.2 0.45 1.0" quat="0 0.707 0 0.707" mocap="true">
+      <geom type="box" size="0.03 0.03 0.03" contype="0" conaffinity="0" rgba="0.3 0.3 0.8 0.3"/>
+      <site type="box" size="0.01 0.01 0.01" rgba="0 0 1 1" group="1"/>
+    </body>
+    
+    <body name="right_wrist_target" pos="0.2 -0.45 1.0" quat="0 0.707 0 0.707" mocap="true">
+      <geom type="box" size="0.03 0.03 0.03" contype="0" conaffinity="0" rgba="0.8 0.3 0.3 0.3"/>
+      <site type="box" size="0.01 0.01 0.01" rgba="1 0 0 1" group="1"/>
+    </body>
+  </worldbody>
+
+  <keyframe>
+    <key name="home" 
+         qpos="-0.094108 -1.051386 -0.048695 -1.682148 1.47887 1.48531 0.121335
+        0.081123 -1.052119 0.067509 -1.68241 -1.48812 1.471749 -0.12322"/>
+  </keyframe>
+  
+</mujoco>
+

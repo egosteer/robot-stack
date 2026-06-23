@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="Robot">
+  <compiler angle="radian" />
+  <option gravity="0 0 0">
+    <flag contact="disable" />
+  </option>
+  <asset>
+    <mesh name="arm1_link0_collisions" content_type="model/obj" file="arm1_link0_collisions.obj" />
+    <mesh name="arm1_link1_collisions" content_type="model/obj" file="arm1_link1_collisions.obj" />
+    <mesh name="arm1_link2_collisions" content_type="model/obj" file="arm1_link2_collisions.obj" />
+    <mesh name="arm1_link3_collisions" content_type="model/obj" file="arm1_link3_collisions.obj" />
+    <mesh name="arm1_link4_collisions" content_type="model/obj" file="arm1_link4_collisions.obj" />
+    <mesh name="arm1_link5_collisions" content_type="model/obj" file="arm1_link5_collisions.obj" />
+    <mesh name="arm1_link6_collisions" content_type="model/obj" file="arm1_link6_collisions.obj" />
+    <mesh name="arm1_link7_collisions" content_type="model/obj" file="arm1_link7_collisions.obj" />
+    <mesh name="arm2_link0_collisions" content_type="model/obj" file="arm2_link0_collisions.obj" />
+    <mesh name="arm2_link1_collisions" content_type="model/obj" file="arm2_link1_collisions.obj" />
+    <mesh name="arm2_link2_collisions" content_type="model/obj" file="arm2_link2_collisions.obj" />
+    <mesh name="arm2_link3_collisions" content_type="model/obj" file="arm2_link3_collisions.obj" />
+    <mesh name="arm2_link4_collisions" content_type="model/obj" file="arm2_link4_collisions.obj" />
+    <mesh name="arm2_link5_collisions" content_type="model/obj" file="arm2_link5_collisions.obj" />
+    <mesh name="arm2_link6_collisions" content_type="model/obj" file="arm2_link6_collisions.obj" />
+    <mesh name="arm2_link7_collisions" content_type="model/obj" file="arm2_link7_collisions.obj" />
+    <mesh name="body_visuals" content_type="model/obj" file="body_visuals.obj" />
+  </asset>
+  <worldbody>
+    <geom pos="0 0 -0.0105199" quat="0.707107 0 0 0.707107" type="mesh" mesh="body_visuals" />
+    <body name="arm1_link0" pos="0 0.1035 1.022" quat="-0.707107 0.000000 0.000000 0.707107">
+      <geom type="mesh" mesh="arm1_link0_collisions" quat="0.000000 -0.258819 0.000000 0.965926" />
+      <body name="arm1_link1" pos="-0.12025 -8.80291e-09 0.20828" quat="0.000000 -0.258819 0.000000 0.965926">
+        <inertial pos="0 0 0" mass="1.6026" diaginertia="0.001 0.001 0.001" />
+        <joint name="arm1_joint_link1" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-60 60" />
+        <geom quat="1 0 0 -5e-08" type="mesh" mesh="arm1_link1_collisions" />
+        <body name="arm1_link2" quat="0.499998 0.5 -0.5 0.500002">
+          <inertial pos="0 0 0" mass="1.1687" diaginertia="0.001 0.001 0.001" />
+          <joint name="arm1_joint_link2" pos="0 0 0" axis="0 0 1" range="-2.269 2.269" actuatorfrcrange="-60 60" />
+          <geom type="mesh" mesh="arm1_link2_collisions" />
+          <body name="arm1_link3" pos="0.256 0 0" quat="0.499998 -0.5 0.5 -0.500002">
+            <inertial pos="0 0 0" mass="1.1646" diaginertia="0.001 0.001 0.001" />
+            <joint name="arm1_joint_link3" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-30 30" />
+            <geom quat="1 0 0 -5e-08" type="mesh" mesh="arm1_link3_collisions" />
+            <body name="arm1_link4" quat="1.22103e-06 -1.22103e-06 -0.707107 0.707107">
+              <inertial pos="0 0 0" mass="0.78204" diaginertia="0.001 0.001 0.001" />
+              <joint name="arm1_joint_link4" pos="0 0 0" axis="0 0 1" range="-2.356 2.356" actuatorfrcrange="-30 30" />
+              <geom type="mesh" mesh="arm1_link4_collisions" />
+              <body name="arm1_link5" pos="0 -0.21 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="0 0 0" mass="0.64648" diaginertia="0.001 0.001 0.001" />
+                <joint name="arm1_joint_link5" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-10 10" />
+                <geom type="mesh" mesh="arm1_link5_collisions" />
+                <body name="arm1_link6" quat="0.707105 -0.707108 0 0">
+                  <inertial pos="0 0 0" mass="0.59074" diaginertia="0.001 0.001 0.001" />
+                  <joint name="arm1_joint_link6" pos="0 0 0" axis="0 0 1" range="-2.234 2.234" actuatorfrcrange="-10 10" />
+                  <geom type="mesh" mesh="arm1_link6_collisions" />
+                  <body name="arm1_link7" pos="0 -0.1613 0" quat="0.707105 0.707108 0 0">
+                    <inertial pos="0 0 0" mass="0.57062" diaginertia="0.001 0.001 0.001" />
+                    <joint name="arm1_joint_link7" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-10 10" />
+                    <geom type="mesh" mesh="arm1_link7_collisions" />
+                    <site name="left_wrist" pos="0 0 0" quat="-1.000000 0.000000 0.000000 0.000000" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="arm2_link0" pos="0 -0.1035 1.022" quat="0.707107 0.000000 0.000000 0.707107">
+      <geom type="mesh" mesh="arm2_link0_collisions" quat="0.000000 -0.258819 0.000000 0.965926" />
+      <body name="arm2_link1" pos="-0.12025 8.80291e-09 0.20828" quat="0.000000 -0.258819 0.000000 0.965926">
+        <inertial pos="0 0 0" mass="1.6026" diaginertia="0.001 0.001 0.001" />
+        <joint name="arm2_joint_link1" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-60 60" />
+        <geom quat="1 0 0 5e-08" type="mesh" mesh="arm2_link1_collisions" />
+        <body name="arm2_link2" quat="0.499998 0.5 -0.5 0.500002">
+          <inertial pos="0 0 0" mass="1.1687" diaginertia="0.001 0.001 0.001" />
+          <joint name="arm2_joint_link2" pos="0 0 0" axis="0 0 1" range="-2.269 2.269" actuatorfrcrange="-60 60" />
+          <geom type="mesh" mesh="arm2_link2_collisions" />
+          <body name="arm2_link3" pos="0.256 0 0" quat="0.499998 -0.5 0.5 -0.500002">
+            <inertial pos="0 0 0" mass="1.1646" diaginertia="0.001 0.001 0.001" />
+            <joint name="arm2_joint_link3" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-30 30" />
+            <geom quat="1 0 0 5e-08" type="mesh" mesh="arm2_link3_collisions" />
+            <body name="arm2_link4" quat="1.22103e-06 -1.22103e-06 -0.707107 0.707107">
+              <inertial pos="0 0 0" mass="0.78204" diaginertia="0.001 0.001 0.001" />
+              <joint name="arm2_joint_link4" pos="0 0 0" axis="0 0 1" range="-2.356 2.356" actuatorfrcrange="-30 30" />
+              <geom type="mesh" mesh="arm2_link4_collisions" />
+              <body name="arm2_link5" pos="0 -0.21 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="0 0 0" mass="0.64648" diaginertia="0.001 0.001 0.001" />
+                <joint name="arm2_joint_link5" pos="0 0 0" axis="0 0 1" range="-3.105 3.105" actuatorfrcrange="-10 10" />
+                <geom type="mesh" mesh="arm2_link5_collisions" />
+                <body name="arm2_link6" quat="0.707105 -0.707108 0 0">
+                  <inertial pos="0 0 0" mass="0.59074" diaginertia="0.001 0.001 0.001" />
+                  <joint name="arm2_joint_link6" pos="0 0 0" axis="0 0 1" range="-2.234 2.234" actuatorfrcrange="-10 10" />
+                  <geom type="mesh" mesh="arm2_link6_collisions" />
+                  <body name="arm2_link7" pos="0 -0.1613 0" quat="0.707105 0.707108 0 0">
+                    <inertial pos="0 0 0" mass="0.57062" diaginertia="0.001 0.001 0.001" />
+                    <joint name="arm2_joint_link7" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-10 10" />
+                    <geom type="mesh" mesh="arm2_link7_collisions" />
+                    <site name="right_wrist" pos="0 0 0" quat="-1.000000 0.000000 0.000000 0.000000" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

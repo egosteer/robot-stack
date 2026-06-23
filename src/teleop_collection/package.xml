@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>teleop_collection</name>
+  <version>0.1.0</version>
+  <description>Standalone teleoperation data-collection orchestrator (pedal control) for EgoSteer. Reuses the shared arm/hand IK, control and recording nodes; does not run model inference.</description>
+  <maintainer email="egosteer@outlook.com">EgoSteer Team</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>arm</exec_depend>
+  <exec_depend>tracker</exec_depend>
+  <exec_depend>hand</exec_depend>
+  <exec_depend>glove</exec_depend>
+  <exec_depend>record</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,15 @@
+head_camera_node:
+  ros__parameters:
+    camera_name: "head"
+    serial_number: ""
+    frequency: 30.0
+    width: 640
+    height: 480
+
+chest_camera_node:
+  ros__parameters:
+    camera_name: "chest"
+    serial_number: ""
+    frequency: 30.0
+    width: 640
+    height: 480

@@ -1,0 +1,4 @@
+/**:
+  ros__parameters:
+    rrd_file_path: ""
+    target_hz: 30.0
