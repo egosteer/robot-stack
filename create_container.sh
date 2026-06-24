@@ -76,8 +76,10 @@ fi
 
 # GPU detection
 GPU_OPTIONS=()
-if command -v nvidia-smi >/dev/null 2>&1; then
+if nvidia-smi >/dev/null 2>&1; then
   GPU_OPTIONS+=(--gpus all)
+  GPU_OPTIONS+=(-e NVIDIA_VISIBLE_DEVICES=all)
+  GPU_OPTIONS+=(-e NVIDIA_DRIVER_CAPABILITIES=compute,utility,display)
 fi
 
 # Optional: mount the host robot_sdk into the container (uncomment and fix the path if needed).
@@ -119,8 +121,6 @@ docker run -d \
   -e QT_X11_NO_MITSHM=1 \
   -e QT_GRAPHICSSYSTEM=native \
   -e QT_LOGGING_RULES="qt.qpa.xcb.xcb_error.debug=false" \
-  -e NVIDIA_VISIBLE_DEVICES=all \
-  -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,display \
   -e WGPU_BACKEND=gl \
   -e LIBGL_ALWAYS_INDIRECT=0 \
   -e XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp}" \
