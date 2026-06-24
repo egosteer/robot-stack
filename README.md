@@ -130,7 +130,7 @@ Then, inside the container, launch the stack and the inference client, each in i
 robot --inference   # cameras + arms + hands
 interface           # inference client
 ```
-With everything running, the operator types a natural-language instruction into the web terminal, and it is delivered to the robot whenever the model requests one. Execution is controlled with a single foot pedal. Pedal 1 starts execution, and the next press ends it and returns the system to idle.
+With everything running, the operator types a natural-language instruction into the web terminal, and it is delivered to the robot whenever the model requests one. Execution is controlled with a single foot pedal. Pedal 1 starts execution, and the next press ends execution and resets the robot.
 
 ### Human-in-the-loop correction
 This mode runs model inference while allowing the operator to intervene. The model controls the robot by default, and at any moment the operator can take over, steering the arms and hands exactly as in teleoperation, correct the model's behavior, and then return control to the model. Takeover relies on *relative motion mapping*. From the instant the operator takes over, the change in the operator's motion relative to that instant is applied to the robot's current pose, ensuring that the arms and hands continue smoothly from where they are rather than jumping to the operator's absolute pose. The operator is therefore advised to mirror the robot's motion throughout the episode, which makes intervention easier to carry out successfully and keeps the operation intuitive.
