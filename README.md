@@ -52,9 +52,16 @@ The in-container MuJoCo viewer renders on the host's X display, which by default
 echo 'xhost +SI:localuser:root > /dev/null 2>&1' >> ~/.xprofile && xhost +SI:localuser:root
 ```
 
-**3. Obtain the Docker image.** Pull the prebuilt image, or build it from the `Dockerfile`:
+**3. Obtain the Docker image.** Pull the prebuilt image from any of the registries below (the contents are identical, so pick whichever is reachable), or build it from the `Dockerfile`. When pulling from a registry other than Docker Hub, retag the image to `egosteerai/robot-stack:latest`, the name `create_container.sh` expects:
 ```bash
+# Docker Hub
 docker pull egosteerai/robot-stack:latest
+# GitHub Container Registry
+docker pull ghcr.io/egosteer/robot-stack:latest
+docker tag  ghcr.io/egosteer/robot-stack:latest egosteerai/robot-stack:latest
+# Tencent Cloud registry
+docker pull docker-registry.psibot.net/egosteer/robot-stack:latest
+docker tag  docker-registry.psibot.net/egosteer/robot-stack:latest egosteerai/robot-stack:latest
 # or build it locally:
 docker build -t egosteerai/robot-stack:1.0.0 -t egosteerai/robot-stack:latest - < Dockerfile
 ```
