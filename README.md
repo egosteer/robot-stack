@@ -1,7 +1,7 @@
 <h1 align="center">EgoSteer: A Full-Stack System Towards Steerable Dexterous Manipulation from Egocentric Videos</h1>
 
 <p align="center">
-  <a href="https://egosteer.github.io/EgoSteer.pdf"><img src="https://img.shields.io/badge/Paper-arXiv-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="Paper"></a>
+  <a href="https://arxiv.org/abs/2607.09701"><img src="https://img.shields.io/badge/Paper-arXiv-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="Paper"></a>
   <a href="https://egosteer.github.io/"><img src="https://img.shields.io/badge/Project-Page-1a73e8?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Project Page"></a>
   <a href="https://huggingface.co/EgoSteer/datasets"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Data-Hugging%20Face-FFD21E?style=for-the-badge&labelColor=555555" alt="Data"></a>
   <a href="https://huggingface.co/EgoSteer/models"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model-Hugging%20Face-FFD21E?style=for-the-badge&labelColor=555555" alt="Model"></a>
@@ -169,3 +169,19 @@ The entire correction workflow is controlled with a foot pedal:
   robot --replay     # arms + hands only
   replay             # plays back rrd_file_path
   ```
+
+## Citation
+
+If you find our paper or this repository helpful in your research or project, please consider citing our work using the following BibTeX citation:
+
+```tex
+@misc{zhong2026egosteerfullstacksteerabledexterous,
+      title={EgoSteer: A Full-Stack System Towards Steerable Dexterous Manipulation from Egocentric Videos}, 
+      author={Yifan Zhong and Zhang Chen and Tianrui Guan and Fanlian Zeng and Yuyao Ye and Tianjia He and Ka Nam Lui and Jiayi Li and Tingrui Zhang and Ruilin Yan and Xinhao Ji and Guangyu Zhao and Wenjie Lou and Jiayuan Zhang and Yuanpei Chen and Yaodong Yang},
+      year={2026},
+      eprint={2607.09701},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2607.09701}, 
+}
+```
