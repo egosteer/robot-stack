@@ -160,12 +160,12 @@ class HandControlNode(Node):
         
         # Define motor_id to joint name mapping
         joint_name_mapping = {
-            1: "thumb_rotation",
+            1: "thumb_rotate",
             2: "thumb_bend",
-            3: "index",
-            4: "middle",
-            5: "ring",
-            6: "pinky"
+            3: "index_bend",
+            4: "middle_bend",
+            5: "ring_bend",
+            6: "pinky_bend"
         }
         
         joint_names = []
