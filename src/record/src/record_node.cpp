@@ -65,55 +65,55 @@ void RecordNode::setup_subscriptions() {
   rclcpp::SubscriptionOptions options;
   options.callback_group = callback_group;
 
-  auto add_joint_sub = [this, &options](const std::string& topic, const std::string& entity_path) {
+  auto add_joint_sub = [this, &options](const std::string& topic) {
     joint_subs_.push_back(this->create_subscription<JointState>(
         topic,
         queue_size_,
-        [this, entity_path](const JointState::SharedPtr msg) { joint_callback(msg, entity_path); },
+        [this, topic](const JointState::SharedPtr msg) { joint_callback(msg, topic); },
         options));
   };
 
-  auto add_image_sub = [this, &options](const std::string& topic, const std::string& entity_path, bool depth) {
+  auto add_image_sub = [this, &options](const std::string& topic, bool depth) {
     rclcpp::QoS image_qos(rclcpp::KeepLast(static_cast<size_t>(queue_size_)));
     image_qos.best_effort();
     image_subs_.push_back(this->create_subscription<Image>(
         topic,
         image_qos,
-        [this, entity_path, depth](const Image::SharedPtr msg) {
+        [this, topic, depth](const Image::SharedPtr msg) {
           if (depth) {
-            depth_callback(msg, entity_path);
+            depth_callback(msg, topic);
           } else {
-            rgb_callback(msg, entity_path);
+            rgb_callback(msg, topic);
           }
         },
         options));
   };
 
-  auto add_text_sub = [this, &options](const std::string& topic, const std::string& entity_path) {
+  auto add_text_sub = [this, &options](const std::string& topic) {
     text_subs_.push_back(this->create_subscription<String>(
         topic,
         10,
-        [this, entity_path](const String::SharedPtr msg) { text_callback(msg, entity_path); },
+        [this, topic](const String::SharedPtr msg) { text_callback(msg, topic); },
         options));
   };
 
-  add_joint_sub("/action/left_hand/joints", "/ry_hand/left/set_angles");
-  add_joint_sub("/action/right_hand/joints", "/ry_hand/right/set_angles");
-  add_joint_sub("/state/left_hand/joints", "/ry_hand/left/joint_states");
-  add_joint_sub("/state/right_hand/joints", "/ry_hand/right/joint_states");
+  add_joint_sub("/action/left_hand/joints");
+  add_joint_sub("/action/right_hand/joints");
+  add_joint_sub("/state/left_hand/joints");
+  add_joint_sub("/state/right_hand/joints");
 
-  add_joint_sub("/action/left_arm/joints", "/ik_output");
-  add_joint_sub("/action/right_arm/joints", "/ik_output");
-  add_joint_sub("/state/left_arm/joints", "/left_arm/joint_states");
-  add_joint_sub("/state/right_arm/joints", "/right_arm/joint_states");
+  add_joint_sub("/action/left_arm/joints");
+  add_joint_sub("/action/right_arm/joints");
+  add_joint_sub("/state/left_arm/joints");
+  add_joint_sub("/state/right_arm/joints");
 
-  add_image_sub("/camera/head/rgb", "/camera/head/rgb_image", false);
-  add_image_sub("/camera/head/depth", "/camera/head/depth_image", true);
-  add_image_sub("/camera/chest/rgb", "/camera/chest/rgb_image", false);
-  add_image_sub("/camera/chest/depth", "/camera/chest/depth_image", true);
+  add_image_sub("/camera/head/rgb", false);
+  add_image_sub("/camera/head/depth", true);
+  add_image_sub("/camera/chest/rgb", false);
+  add_image_sub("/camera/chest/depth", true);
 
-  add_text_sub("/commander", "/commander");
-  add_text_sub("/interface/instruction", "/recording_info/instruction");
+  add_text_sub("/commander");
+  add_text_sub("/interface/instruction");
 }
 
 void RecordNode::setup_services() {

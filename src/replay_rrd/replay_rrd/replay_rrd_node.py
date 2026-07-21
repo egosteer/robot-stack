@@ -20,10 +20,10 @@ from scipy.spatial.transform import Rotation as R
 from std_msgs.msg import String
 
 
-# Mirror of hand_ik_node.MOTOR_POSITION_MULTIPLIER; recorded /ry_hand/*/set_angles
-# and /ry_hand/*/joint_states carry motor-cmd-scaled values, so we must divide
-# them back to 0..1 normalized angles before feeding the FK model (same as
-# hand_fk_node.compute_fk).
+# Mirror of hand_ik_node.MOTOR_POSITION_MULTIPLIER. Hand action/state ROS topic
+# streams carry motor-cmd-scaled values; legacy RRDs store the same values below
+# /ry_hand/*. Divide them back to 0..1 normalized angles before feeding the FK
+# model (same as hand_fk_node.compute_fk).
 HAND_MOTOR_POSITION_MULTIPLIER = [0.6, 1.0, 1.0, 1.0, 1.0, 1.0]
 
 
@@ -444,21 +444,33 @@ class ReplayRRDNode(Node):
         if side == 'left':
             action_joint_names = [f'arm1_joint_link{i+1}' for i in range(7)]
             state_joint_names = [f'left_joint_{i+1}' for i in range(7)]
-            state_prefix = '/left_arm/joint_states/position'
         else:
             action_joint_names = [f'arm2_joint_link{i+1}' for i in range(7)]
             state_joint_names = [f'right_joint_{i+1}' for i in range(7)]
-            state_prefix = '/right_arm/joint_states/position'
+
+        action_prefix = f'/action/{side}_arm/joints/position'
+        state_prefix = f'/state/{side}_arm/joints/position'
+        legacy_state_prefix = f'/{side}_arm/joint_states/position'
 
         return [
+            {
+                'exact_column_groups': self._scalar_column_groups(action_prefix, action_joint_names),
+                'prefixes': [action_prefix],
+                'joint_tokens': action_joint_names,
+            },
+            {
+                'exact_column_groups': self._scalar_column_groups(state_prefix, state_joint_names),
+                'prefixes': [state_prefix],
+                'joint_tokens': state_joint_names,
+            },
             {
                 'exact_column_groups': self._scalar_column_groups('/ik_output/position', action_joint_names),
                 'prefixes': ['/ik_output/position'],
                 'joint_tokens': action_joint_names,
             },
             {
-                'exact_column_groups': self._scalar_column_groups(state_prefix, state_joint_names),
-                'prefixes': [state_prefix],
+                'exact_column_groups': self._scalar_column_groups(legacy_state_prefix, state_joint_names),
+                'prefixes': [legacy_state_prefix],
                 'joint_tokens': state_joint_names,
             },
         ]
@@ -478,8 +490,10 @@ class ReplayRRDNode(Node):
             f'{hand_prefix}_joint_link_5_1',
         ]
         state_joint_names = ['thumb_rotation', 'thumb_bend', 'index', 'middle', 'ring', 'pinky']
-        action_prefix = f'/ry_hand/{side}/set_angles/position'
-        state_prefix = f'/ry_hand/{side}/joint_states/position'
+        action_prefix = f'/action/{side}_hand/joints/position'
+        state_prefix = f'/state/{side}_hand/joints/position'
+        legacy_action_prefix = f'/ry_hand/{side}/set_angles/position'
+        legacy_state_prefix = f'/ry_hand/{side}/joint_states/position'
 
         return [
             {
@@ -495,6 +509,21 @@ class ReplayRRDNode(Node):
             {
                 'exact_column_groups': self._scalar_column_groups(state_prefix, state_joint_names),
                 'prefixes': [state_prefix],
+                'joint_tokens': state_joint_names,
+            },
+            {
+                'exact_column_groups': self._scalar_column_groups(legacy_action_prefix, action_joint_names),
+                'prefixes': [legacy_action_prefix],
+                'joint_tokens': action_joint_names,
+            },
+            {
+                'exact_column_groups': self._scalar_column_groups(legacy_action_prefix, action_mjcf_joint_names),
+                'prefixes': [legacy_action_prefix],
+                'joint_tokens': action_mjcf_joint_names,
+            },
+            {
+                'exact_column_groups': self._scalar_column_groups(legacy_state_prefix, state_joint_names),
+                'prefixes': [legacy_state_prefix],
                 'joint_tokens': state_joint_names,
             },
         ]
