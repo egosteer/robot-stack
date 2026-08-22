@@ -75,6 +75,8 @@ class ArmControlNode(Node):
             self.arm_name = "Right arm"
             self.frame_id = "right_arm_base"
         self.dof = 7
+        arm_prefix = 'arm1' if self.arm_side == 'left' else 'arm2'
+        self.joint_names = [f'{arm_prefix}_joint_link{i+1}' for i in range(self.dof)]
 
         if not self._init_robotic_arm():
             self.get_logger().error(f"❌ {self.arm_name} initialization failed")
@@ -263,7 +265,7 @@ class ArmControlNode(Node):
         msg = JointState()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.header.frame_id = self.frame_id
-        msg.name = [f'{self.arm_side}_joint_{i+1}' for i in range(self.dof)]
+        msg.name = list(self.joint_names)
         msg.position = self.current_joint_positions.tolist()
         msg.velocity = [0.0] * self.dof
         msg.effort = [0.0] * self.dof
